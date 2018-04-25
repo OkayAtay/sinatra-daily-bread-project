@@ -1,6 +1,7 @@
 class ChefController < ApplicationController
 
-  get '/'
+  get '/' do
     erb :'/index'
   end
+
 end
