@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <title>Daily Bread</title>
   </head>
   <style>
@@ -13,7 +14,7 @@
     }
 
     .hero-image {
-    background-image: url('http://www.toptenz.net/wp-content/uploads/2014/12/vegitarianfoods10.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('http://www.toptenz.net/wp-content/uploads/2014/12/vegitarianfoods10.jpg');
     height: 50%;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,12 +28,22 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: black;
+    color: white;
+    }
+
+    h1 {
+      font-size:80px;
+      font-family: 'Pacifico', cursive;
     }
 
     h2 {
+      font-size: 45px;
       border-top: double;
       border-bottom: double;
+    }
+
+    p .styled {
+      font-family: 'Pacifico', cursive;
     }
 
     .container .btn:hover {
@@ -40,10 +51,11 @@
     color: white;
     }
   </style>
+
   <body>
     <div class="hero-image">
       <div class="hero-text">
-        <h1 style="font-size:50px">Daily Bread</h1>
+        <h1>Daily Bread</h1>
       </div>
     </div>
     <%=yield%>
