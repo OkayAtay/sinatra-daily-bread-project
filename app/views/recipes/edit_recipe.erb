@@ -2,6 +2,23 @@
   <h2>Edit Recipe Here:</h2>
   <form action='/recipes/<%=@recipe.id%>/edit' method="post">
     <input type="hidden" name="_method" value="patch">
+    <p class="styled"> Recipe Name: </p>
+    <input type="text" id='name' name='name' value="<%=@recipe.name%>"><br></br>
+    <p class="styled"> Ingredients: </p>
+    <input type="text" id='ingredients' name='ingredients' value="<%=@recipe.ingredients%>"><br></br>
+    <p class="styled"> Time: </p>
+    <input type="text" id='time' name='time' value="<%=@recipe.time%>"><br></br>
+    <p class="styled"> Weekday </p>
+    <select id="weekday" name='weekday' value="<%=@recipe.weekday%>">
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+      </select>
+    <br>
     <input type="submit" id="submit" value="Update Recipe">
   </form>
 </div>
