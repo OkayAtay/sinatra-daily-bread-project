@@ -1,0 +1,6 @@
+<div class="container text-center">
+  <h2>Edit Recipe Here:</h2>
+  <form action='/recipes/<%=@recipe.id%>/edit' method="post">
+    <input type="hidden" name="_method" value="patch">
+  </form>
+</div>
