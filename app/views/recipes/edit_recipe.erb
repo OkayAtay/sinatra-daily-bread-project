@@ -2,5 +2,6 @@
   <h2>Edit Recipe Here:</h2>
   <form action='/recipes/<%=@recipe.id%>/edit' method="post">
     <input type="hidden" name="_method" value="patch">
+    <input type="submit" id="submit" value="Update Recipe">
   </form>
 </div>
