@@ -9,7 +9,6 @@ class RecipeController < ApplicationController
   end
 
   post '/recipes/new' do
-    binding.pry
     @recipe = Recipe.create(params)
     # @recipe.user_id = current_user.id
     @recipe.save
@@ -21,6 +20,21 @@ class RecipeController < ApplicationController
   end
 
   patch '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.update(params)
+    @recipe.save
+  end
 
+  delete '/recipes/:id/delete' do
+  @recipe = Recipe.find_by_id(params[:id])
+    if logged_in? && @recipe.user_id == current_user.id
+      @recipe.delete
+      redirect '/recipes'
+    end
+  end
+
+  get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :'/recipes/show_tweet'
   end
 end
