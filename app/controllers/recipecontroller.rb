@@ -2,6 +2,7 @@ class RecipeController < ApplicationController
 
   get '/recipes' do
     @recipes = Recipe.all
+    erb :'/recipes/index_recipe'
   end
 
   get '/recipes/new' do
@@ -27,10 +28,8 @@ class RecipeController < ApplicationController
 
   delete '/recipes/:id/delete' do
   @recipe = Recipe.find_by_id(params[:id])
-    if logged_in? && @recipe.user_id == current_user.id
-      @recipe.delete
-      redirect '/recipes'
-    end
+  @recipe.delete
+  redirect '/recipes'
   end
 
   get '/recipes/:id' do
