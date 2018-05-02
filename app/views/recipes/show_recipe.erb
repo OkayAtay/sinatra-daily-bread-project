@@ -4,7 +4,7 @@
   <p class="styled"> Cooking Time:</p><%=@recipe.time%> <br></br>
   <p class="styled"> Weekday: </p> <%=@recipe.weekday%> <br></br>
   <a class="btn btn-default btn-lg" href='/recipes/edit_recipe'>Edit Recipe</a>
-  <form class="btn btn-default btn-lg" method="post" action="/recipes/<%=@recipe.id%>/delete">
+  <form method="post" action="/recipes/<%=@recipe.id%>/delete">
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Recipe">
   </form>

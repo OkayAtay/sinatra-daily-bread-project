@@ -34,6 +34,6 @@ class RecipeController < ApplicationController
 
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
-    erb :'/recipes/show_tweet'
+    erb :'/recipes/show_recipe'
   end
 end
