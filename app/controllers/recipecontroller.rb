@@ -2,34 +2,57 @@ class RecipeController < ApplicationController
 
   get '/recipes' do
     @recipes = Recipe.all
-    erb :'/recipes/index_recipe'
+    if logged_in?
+      current_user = @chef
+      erb :'/recipes/index_recipe'
+    else
+      redirect '/login'
+    end
   end
 
   get '/recipes/new' do
-    erb :'/recipes/create_recipe'
+    if logged_in?
+      erb :'/recipes/create_recipe'
+    else
+      redirect '/login'
+    end
   end
 
-  post '/recipes/new' do
+  post '/recipes' do
     @recipe = Recipe.create(params)
-    # @recipe.user_id = current_user.id
+    binding.pry
+    @recipe.chef_id = current_user.id
     @recipe.save
+    redirect '/recipes'
   end
 
   get '/recipes/:id/edit' do
-    @recipe = Recipe.find_by_id(params[:id])
-    erb :'/recipes/edit_recipe'
+    if logged_in?
+      @recipe = Recipe.find_by_id(params[:id])
+      erb :'/recipes/edit_recipe'
+    else
+      redirect '/login'
+    end
   end
 
   patch '/recipes/:id/edit' do
-    @recipe = Recipe.find_by_id(params[:id])
-    @recipe.update(params)
-    @recipe.save
+    if logged_in?
+      @recipe = Recipe.find_by_id(params[:id])
+      @recipe.update(params)
+      @recipe.save
+    else
+      redirect '/login'
+    end
   end
 
   delete '/recipes/:id/delete' do
-  @recipe = Recipe.find_by_id(params[:id])
-  @recipe.delete
-  redirect '/recipes'
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    if @recipe && @recipe.destory
+      @recipe.delete
+      redirect '/recipes'
+    else
+      redirect '/recipes/#{@recipe.id}'
+    end
   end
 
   get '/recipes/:id' do

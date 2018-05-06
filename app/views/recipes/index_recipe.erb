@@ -1,4 +1,5 @@
 <div class="container text-center">
+  <h2 class="styled">Hi, <%=current_user.name%> -- Welcome to your recipe page!</h2>
   <br></br>
   <%@recipes.find do |r|%>
   <table>
@@ -67,7 +68,7 @@
     <!-- </tbody> -->
   </table>
   <%end%>
-<br></br>
 <p class="styled">Create New Recipe:<br></p>
 <a class="btn btn-default btn-lg" href='/recipes/new'>Create Recipe</a>
+<br></br>
 </div>
