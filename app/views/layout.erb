@@ -68,6 +68,35 @@
     input[type=text]:focus {
         background-color: lightblue;
     }
+
+    @blue: #626E7E;
+    @light: lighten(@blue, 40%);
+    @light2: darken(@light, 3%);
+
+table{
+  font-family:sans-serif;
+		  width: 100%;
+		  border-spacing: 0;
+	  	border-collapse: separate;
+		  table-layout: fixed;
+		  margin-bottom: 50px;
+
+      .day{
+    						          display: block;
+    						          font-size: 1.2em;
+    						          border-radius: 50%;
+    					          		width: 30px;
+    					          	height: 30px;
+    						          margin: 0 auto 5px;
+    						          padding: 5px;
+              line-height: 1.8;
+
+                						&.active{
+    							              background: @light;
+    							              color: @blue;
+    						            }
+    					        }
+        }
   </style>
 
   <body>
