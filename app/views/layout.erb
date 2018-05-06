@@ -80,23 +80,28 @@ table{
 	  	border-collapse: separate;
 		  table-layout: fixed;
 		  margin-bottom: 50px;
-
-      .day{
-    						          display: block;
-    						          font-size: 1.2em;
-    						          border-radius: 50%;
-    					          		width: 30px;
-    					          	height: 30px;
-    						          margin: 0 auto 5px;
-    						          padding: 5px;
-              line-height: 1.8;
-
-                						&.active{
-    							              background: @light;
-    							              color: @blue;
-    						            }
-    					        }
+}
+td, tr, th {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
         }
+
+.day{
+					display: block;
+          font-size: 1.2em;
+          border-radius: 50%;
+        		/*width: 30px;
+        	height: 30px;*/
+          /*margin: 0 auto 5px;
+          padding: 5px;
+            line-height: 1.8;*/
+
+          &.active{
+            background: @light;
+            color: @blue;
+					           }
+				   }
   </style>
 
   <body>

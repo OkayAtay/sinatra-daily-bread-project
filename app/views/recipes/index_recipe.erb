@@ -4,19 +4,11 @@
   <table>
     <thead>
       <tr>
-        <th></th>
         <th>
           <span class="day">Monday</span>
-          <%if r.weekday == "Monday"%>
-          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
-          <%end%>
         </th>
         <th>
          <span class="day">Tuesday</span>
-         <br>
-         <%if r.weekday == "Tuesday"%>
-         <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
-         <%end%>
         </th>
         <th>
           <span class="day">Wednesday</span>
@@ -35,16 +27,47 @@
         </th>
       </tr>
     </thead>
-    <tbody>
+    <!-- <tbody> -->
       <tr>
+        <td>
+        <%if r.weekday == "Monday"%>
+          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%end%></td>
+        <td>
+        <%if r.weekday == "Tuesday"%>
+          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%end%>
+        </td>
+        <td>
+        <%if r.weekday == "Wednesday"%>
+          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%end%>
+        </td>
+        <td>
+        <%if r.weekday == "Thursday"%>
+          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%end%>
+        </td>
+        <td>
+        <%if r.weekday == "Friday"%>
+          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%end%>
+        </td>
+        <td>
+        <%if r.weekday == "Saturday"%>
+          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%end%>
+        </td>
+        <td>
+        <%if r.weekday == "Sunday"%>
+          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%end%>
+        </td>
       </tr>
-
-
-    </tbody>
+    <!-- </tbody> -->
   </table>
   <%end%>
-
 <br></br>
-Create New Recipe:<br>
-<a class="btn btn-default btn-lg" href='/recipes/create_recipe'>Create Recipe</a>
+<p class="styled">Create New Recipe:<br></p>
+<a class="btn btn-default btn-lg" href='/recipes/new'>Create Recipe</a>
 </div>
