@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class ChefController < ApplicationController
+  use Rack::Flash
 
   get '/' do
       erb :'/index'
@@ -19,6 +22,7 @@ class ChefController < ApplicationController
       session[:chef_id] = @chef.id
       redirect to '/recipes'
     else
+      flash[:message] = "Signup not valid, please try again"
       redirect '/signup'
     end
   end
@@ -27,6 +31,7 @@ class ChefController < ApplicationController
     if logged_in?
       redirect '/recipes'
     else
+      flash[:message] = "Login not valid, please try again."
       erb :'/chefs/login'
     end
   end

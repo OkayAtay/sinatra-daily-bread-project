@@ -1,0 +1,15 @@
+Description:
+
+The Sinatra Daily Bread project allows the user to create a weekly meal planner.
+The user can create, edit, and delete recipes and assign them to days of the week.
+
+Install:
+
+You can install the project by either cloning the code from github and running
+it on your server.
+
+Contributors:
+
+A. Taylor
+
+No License Necessary.

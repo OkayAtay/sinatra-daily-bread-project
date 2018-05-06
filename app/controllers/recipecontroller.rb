@@ -19,27 +19,32 @@ class RecipeController < ApplicationController
   end
 
   post '/recipes' do
-    @recipe = Recipe.create(params)
-    binding.pry
-    @recipe.chef_id = current_user.id
-    @recipe.save
-    redirect '/recipes'
+    if logged_in?
+      @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], time: params[:time], weekday: params[:weekday], chef_id: session.chef_id)
+      binding.pry
+      @recipe.chef = current_user
+      @recipe.save
+      redirect '/recipes'
+    end
   end
 
   get '/recipes/:id/edit' do
     if logged_in?
       @recipe = Recipe.find_by_id(params[:id])
-      erb :'/recipes/edit_recipe'
-    else
-      redirect '/login'
+      if @recipe && @recipe.chef == current_user
+        erb :'/recipes/edit_recipe'
+      else
+        redirect '/login'
+      end
     end
   end
 
   patch '/recipes/:id/edit' do
     if logged_in?
       @recipe = Recipe.find_by_id(params[:id])
-      @recipe.update(params)
+      @recipe.update(name: params[:name], ingredients: params[:ingredients], time: params[:time], weekday: params[:weekday])
       @recipe.save
+      redirect '/recipes'
     else
       redirect '/login'
     end
