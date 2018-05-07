@@ -1,7 +1,6 @@
 <div class="container text-center">
   <h2 class="styled">Hi, <%=current_user.name%> -- Welcome to your recipe page!</h2>
   <br></br>
-  <%@recipes.select do |r|%>
   <table>
     <thead>
       <tr>
@@ -30,6 +29,7 @@
     </thead>
     <!-- <tbody> -->
       <tr>
+        <%@recipes.select do |r|%>
         <td>
         <%if r.weekday == "Monday"%>
           <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
