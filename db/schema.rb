@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_24_005151) do
+ActiveRecord::Schema.define(version: 2018_05_06_235400) do
 
   create_table "chefs", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2018_04_24_005151) do
     t.string "instructions"
     t.integer "time"
     t.string "weekday"
+    t.integer "chef_id"
   end
 
 end
