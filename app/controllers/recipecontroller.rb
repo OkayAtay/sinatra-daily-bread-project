@@ -2,6 +2,7 @@ class RecipeController < ApplicationController
 
   get '/recipes' do
     @recipes = Recipe.all
+    binding.pry
     if logged_in?
       current_user = @chef
       erb :'/recipes/index_recipe'

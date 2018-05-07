@@ -1,7 +1,7 @@
 <div class="container text-center">
   <h2 class="styled">Hi, <%=current_user.name%> -- Welcome to your recipe page!</h2>
   <br></br>
-  <%@recipes.find do |r|%>
+  <%@recipes.select do |r|%>
   <table>
     <thead>
       <tr>
@@ -72,6 +72,6 @@
 <a class="btn btn-default btn-lg" href='/recipes/new'>Create Recipe</a>
 <br></br>
 <p class="styled">Logout:<br></p>
-<a class="btn btn-default btn-lg" href='/logout'>Create Recipe</a>
+<a class="btn btn-default btn-lg" href='/logout'>Log Out</a>
 <br></br>
 </div>
