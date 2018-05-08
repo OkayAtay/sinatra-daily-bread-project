@@ -1,10 +1,9 @@
 class RecipeController < ApplicationController
 
   get '/recipes' do
-    binding.pry
-    @recipes = Recipe.all
     if logged_in?
-      current_user = @chef
+      @chef = current_user
+      @recipes = @chef.recipes
       erb :'/recipes/index_recipe'
     else
       redirect '/login'
@@ -48,7 +47,7 @@ class RecipeController < ApplicationController
 
   delete '/recipes/:id/delete' do
     @recipe = current_user.recipes.find_by(id: params[:id])
-    if @recipe && @recipe.destory
+    if @recipe && @recipe.destroy
       @recipe.delete
       redirect '/recipes'
     else
