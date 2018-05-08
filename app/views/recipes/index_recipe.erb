@@ -29,45 +29,59 @@
     </thead>
     <!-- <tbody> -->
       <tr>
+
+        <td>
+          <%@recipes.select do |r|%>
+            <%if r.weekday == "Monday"%>
+              <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+            <%end%>
+          <%end%>
+        </td>
+        <td>
         <%@recipes.select do |r|%>
-        <td>
-        <%if r.weekday == "Monday"%>
-          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
-        <%end%></td>
-        <td>
-        <%if r.weekday == "Tuesday"%>
-          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+          <%if r.weekday == "Tuesday"%>
+            <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+          <%end%>
         <%end%>
         </td>
         <td>
-        <%if r.weekday == "Wednesday"%>
-          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%@recipes.select do |r|%>
+          <%if r.weekday == "Wednesday"%>
+            <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+          <%end%>
         <%end%>
         </td>
         <td>
-        <%if r.weekday == "Thursday"%>
-          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%@recipes.select do |r|%>
+          <%if r.weekday == "Thursday"%>
+            <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+          <%end%>
         <%end%>
         </td>
         <td>
-        <%if r.weekday == "Friday"%>
-          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%@recipes.select do |r|%>
+          <%if r.weekday == "Friday"%>
+            <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+          <%end%>
         <%end%>
         </td>
         <td>
-        <%if r.weekday == "Saturday"%>
-          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%@recipes.select do |r|%>
+          <%if r.weekday == "Saturday"%>
+            <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+          <%end%>
         <%end%>
         </td>
         <td>
-        <%if r.weekday == "Sunday"%>
-          <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+        <%@recipes.select do |r|%>
+          <%if r.weekday == "Sunday"%>
+            <a href='/recipes/<%=r.id%>'> <%=r.name%> </a>
+          <%end%>
         <%end%>
         </td>
       </tr>
     <!-- </tbody> -->
   </table>
-  <%end%>
 <p class="styled">Create New Recipe:<br></p>
 <a class="btn btn-default btn-lg" href='/recipes/new'>Create Recipe</a>
 <br></br>
